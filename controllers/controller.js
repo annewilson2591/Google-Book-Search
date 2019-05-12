@@ -17,7 +17,7 @@ module.exports = {
 
     removeBook: function(req, res) {
         db.Book
-            findById({ _id: req.params.id })
+            .findById({ _id: req.params.id })
             .then(bookData => bookData.remove())
             .then(result => res.json(result))
             .catch(error => console.log(error));
