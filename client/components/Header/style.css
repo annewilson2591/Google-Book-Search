@@ -1,0 +1,14 @@
+head-style h1 {
+    font-family: 'Roboto'
+}
+
+head-style {
+    background: url("../../images/book-arch.jpeg") top right no-repeat;
+    background-size: cover;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+}
+
+
+
