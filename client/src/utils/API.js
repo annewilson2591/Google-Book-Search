@@ -1,13 +1,14 @@
 const dotenv = require("dotennv");
+dotenv.config();
 const axios = require("axios");
 
 export default {
-    searchByKeyword: function(keyword) {
-        // return axios.get(API KEY HERE)
+    searchByKeyword: function(keywords) {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keywords}&key=${process.env.key}`);
     },
 
-    searchByKeywordAndAuthor: function(keyword, author) {
-            // return axios.get(API KEY HERE)
+    searchByKeywordAndAuthor: function(keywords, author) {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keywords}+inauthor:${author}&key=${process.env.key}`);
             // key=API_KEY 
     },
 
