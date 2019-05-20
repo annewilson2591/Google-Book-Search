@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid, Cell } from 'react-foundation';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Card from '../components/Card';
@@ -36,22 +35,20 @@ class Saved extends Component {
             <div>
                 <Header title={"Favorites"} />
                 <Link to="/">
-                    <Button lable={"Back to search"} />
+                    <Button label={"Back to Search"} />
                 </Link>
                     {this.state.savedBooks.map(book => {
                         return (
-                            <Grid className="display" key={book._id}>
-                                <Card
-                                id={book._id}
-                                title={book.title}
-                                authors={book.authors}
-                                image={book.image}
-                                description={book.description}
-                                link={book.link}
-                                btnType={"Remove"}
-                                handler={() => this.deleteBook(book._id)}>
-                                </Card>
-                            </Grid>
+                            <Card
+                            id={book._id}
+                            title={book.title}
+                            authors={book.authors}
+                            image={book.image}
+                            description={book.description}
+                            link={book.link}
+                            btnType={"Remove"}
+                            handler={() => this.deleteBook(book._id)}>
+                            </Card> 
                         )
                     })}
             </div>

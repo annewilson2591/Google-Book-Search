@@ -5,7 +5,6 @@ import SubmitBtn from '../components/SubmitBtn';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
 import Button from '../components/Link';
-import Alert from '../components/Alert';
 import API from '../utils/API';
 import './style.css';
 
@@ -71,23 +70,22 @@ class Search extends Component {
                 <Header title="Google Books Search" />
                 {/* link to favorites */}
                 <Link to="/books">
-                    <Button label={"Go to favorites"} />
+                    <Button label={"Go to Favorites"} />
                 </Link>
                 <div className="search-container">
-                    <Grid className="display">
+                    <div className="display">
                         <h2 className="sub-title">Search & Save Books</h2>
-                    </Grid>
+                    </div>
                     {/* form to search books */}
-                    <Grid className="display search-form">
+                    <div className="display search-form">
                         <form>
                             <SearchBar
-                            name="keyword"
+                            name="keywords"
                             value={this.state.keyword}
                             onChange={this.handleInputChange}
                             placeholder={this.state.termSearched
-                                ? "Search by keyword"
-                            : "Keyword Required"}
-                            />
+                                ? "Search by keywords"
+                            : "Keyword Required"} />
                             <SearchBar
                             placeholder="Filter by author"
                             name="author"
@@ -95,13 +93,10 @@ class Search extends Component {
                             onChange={this.handleInputChange} />
                             <SubmitBtn label="Sumbit" onClick={this.handleSubmit} />
                         </form>
-                    </Grid>
-                    {this.state.updateBook
-                        ? <Alert heading="Book saved" message={`"${this.state.savedBookTitle}" has been added to your favorites`} />
-                        : null}
-                        
+                    </div>
+                
                         {/* list of book results */}
-                        <Grid>
+                        <div>
                             {this.state.bookList.map(book => {
                                 let result = {
                                     title: book.volumeInfo.title,
@@ -112,16 +107,16 @@ class Search extends Component {
                                 }
 
                                 return (
-                                    <Grid className="display2" key={book.id}>
+                                    <div className="display2" key={book.id}>
                                         <Card
                                         title={result.title} authors={result.authors}
                                         image={result.image} description={result.description}
                                         link={result.link} btnType="Save"
                                         handler={() => this.saveBookToDB(result)} />
-                                    </Grid>
+                                    </div>
                                 );
                             })}
-                        </Grid>
+                        </div>
                 </div>
             </div>
         )

@@ -1,9 +1,9 @@
-const dotenv = require("dotennv");
+const dotenv = require("dotenv");
 dotenv.config();
 const axios = require("axios");
 
 export default {
-    searchByKeyword: function(keywords) {
+    searchByKeywords: function(keywords) {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keywords}&key=${process.env.key}`);
     },
 
